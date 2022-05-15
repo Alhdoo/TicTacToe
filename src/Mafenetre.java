@@ -22,6 +22,9 @@ public class Mafenetre extends JFrame implements ActionListener, FocusListener {
     JButton btRejouer;
     JLabel joueur;
     boolean j;
+    ImageIcon imageCroix = new ImageIcon(getClass().getResource("icones/croix.png"));
+    ImageIcon imageRond = new ImageIcon(getClass().getResource("icones/cercle.png"));
+    ImageIcon imageVide = new ImageIcon(getClass().getResource("icones/fondBlanc.png"));
 
     public Mafenetre() {
         this.setTitle("Morpion");
@@ -53,11 +56,12 @@ public class Mafenetre extends JFrame implements ActionListener, FocusListener {
         //label.setBackground(Color.blue);
 
         visuGrille = new JButton[3][3];
-        ImageIcon imageCroix = new ImageIcon(getClass().getResource("icones/fondBlanc.png"));
+
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 visuGrille[i][j] = new JButton();
-                visuGrille[i][j].setIcon(imageCroix);
+                visuGrille[i][j].setIcon(imageVide);
             }
         }
 
@@ -107,6 +111,7 @@ public class Mafenetre extends JFrame implements ActionListener, FocusListener {
                 if(e.getSource()==visuGrille[i][j]){
                     if(this.j==true)
                     {
+                        visuGrille[i][j].setIcon(imageCroix);
 
                     }
 
